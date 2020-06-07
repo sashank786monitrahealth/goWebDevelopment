@@ -8,8 +8,8 @@
 </head>
 <body>
 <ul>
-     {{range .}}
-    <li>{{.Name}}-{{.Motto}}</li>
+     {{range $index, $value := .}}
+    <li>{{$value.Name}}-{{$value.Motto}}</li>
     {{end}}
 </ul>
 </body>
