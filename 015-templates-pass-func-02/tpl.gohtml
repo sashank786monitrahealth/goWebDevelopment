@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Role Models:</title>
+</head>
+<body>
+<ul>
+     {{range $index, $value := .Wisdom}}
+    <li>{{ft $value.Name}}-{{uc $value.Motto}}</li>
+    {{end}}
+</ul>
+<ul>
+     {{range $index, $value := .Transport}}
+    <li>{{uc $value.Manufacturer}}-{{$value.Doors}}</li>
+    {{end}}
+</ul>
+</body>
+</html>
