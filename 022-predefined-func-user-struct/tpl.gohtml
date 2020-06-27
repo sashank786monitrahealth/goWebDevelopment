@@ -28,6 +28,15 @@ Example # 3 - {{.Name}}
 {{end}}
 {{end}}
 
+Example # 4
+{{range .}}
+{{if and .Name .Admin}}
+Example # 4 - Name: {{.Name}}
+Example # 4 - Admin: {{.Admin}}
+{{end}}
+{{end}}
+
+
 
 
 
