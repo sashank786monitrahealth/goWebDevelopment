@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Composition</title>
+</head>
+<body>
+    
+<h1>{{.Fall.Term}}</h1>
+{{range .Fall.Courses}}
+{{.Number}} - {{.Name}} - {{.Units}} <br>
+{{end}}
+    
+<h1>{{.Spring.Term}}</h1>
+{{range .Spring.Courses}}
+{{.Number}} - {{.Name}} - {{.Units}} <br>
+{{end}}
+
+</body>
+</html>
