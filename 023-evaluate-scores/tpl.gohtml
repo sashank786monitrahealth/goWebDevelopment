@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>predefined global functions</title>
+</head>
+<body>
+
+{{if gt .Score1 .Score2}}
+SCORE 1 > SCORE 2
+{{end}}
+
+{{if lt .Score1 .Score2}}
+SCORE 2 > SCORE 1
+{{end}}
+
+
+{{if eq .Score1 .Score2}}
+SCORE 1 = SCORE 2
+{{end}}
+
+
+{{if lt .Score1 10}}
+SCORE is less than 10.
+{{end}}
+
+
+
+</body>
+</html>
