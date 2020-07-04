@@ -48,10 +48,12 @@ func handle(conn net.Conn) {
 func rot13(bs []byte) []byte {
 	var r13 []byte = make([]byte, len(bs))
 
+	//fmt.Println("bs= %v\n", bs)
+
 	for i, v := range bs {
 		// ascii 97 - 122
 		if v <= 109 {
-			r13[1] = v + 13
+			r13[i] = v + 13
 		} else {
 			r13[i] = v - 13
 		}
