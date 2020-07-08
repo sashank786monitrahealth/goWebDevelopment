@@ -8,7 +8,7 @@ import (
 type hotdog int
 
 func (m hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-	w.Header().Set("Mcleod-Key", "this is from mcleod")
+	w.Header().Set("Sashank-Key", "this is from sashank")
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	fmt.Fprintln(w, "<h1>Any code you want in this func</h1>")
 }
