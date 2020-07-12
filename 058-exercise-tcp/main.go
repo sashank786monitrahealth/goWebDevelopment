@@ -18,3 +18,34 @@ Once you have all of that working, run your TCP server and from test it from tel
 */
 
 package main
+
+import (
+	"io"
+	"log"
+	"net"
+)
+
+func main() {
+	var l net.Listener
+	var err error
+
+	l, err = net.Listen("tcp", ":8080")
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	defer l.Close()
+
+	for {
+		var c net.Conn
+		c, err = l.Accept()
+		if err != nil {
+			log.Println(err)
+		}
+
+		// write to connection
+		io.WriteString(c, "I see you connected.")
+		c.Close()
+	}
+}
