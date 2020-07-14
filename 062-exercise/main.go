@@ -28,26 +28,33 @@ func main() {
 			log.Println(err)
 		}
 
-		var scanner *bufio.Scanner = bufio.NewScanner(conn)
-		for scanner.Scan() {
-			var ln string = scanner.Text()
-			fmt.Println(ln)
-
-			if ln == "" {
-				// when ln is empty, header is done
-				fmt.Println("This is the end of the http request headers.")
-				break
-			}
-		}
-		defer conn.Close()
-
-		// we never get here
-		// we have an open stream connection
-		// how does the above reader know when it is done?
-		fmt.Println("Code got here")
-		io.WriteString(conn, "I see you connected.")
-
-		conn.Close()
+		go serve(conn)
 
 	}
+}
+
+func serve(conn net.Conn) {
+
+	defer conn.Close()
+
+	var scanner *bufio.Scanner = bufio.NewScanner(conn)
+	for scanner.Scan() {
+		var ln string = scanner.Text()
+		fmt.Println(ln)
+
+		if ln == "" {
+			// when ln is empty, header is done
+			fmt.Println("This is the end of the http request headers.")
+			break
+		}
+	}
+
+	// we never get here
+	// we have an open stream connection
+	// how does the above reader know when it is done?
+	fmt.Println("Code got here")
+	io.WriteString(conn, "I see you connected.")
+
+	//conn.Close()
+
 }
