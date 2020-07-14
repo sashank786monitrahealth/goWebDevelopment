@@ -49,11 +49,17 @@ func serve(conn net.Conn) {
 		}
 	}
 
+	var body string = "CHECK OUT THE RESPONSE BODY PAYLOAD"
+
 	// we never get here
 	// we have an open stream connection
 	// how does the above reader know when it is done?
 	fmt.Println("Code got here")
-	io.WriteString(conn, "I see you connected.")
+	io.WriteString(conn, "HTTP/1.1 200 OK\r\n")
+	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
+	fmt.Fprintf(conn, "Content-Type: text/plain\r\n")
+	io.WriteString(conn, "\r\n")
+	io.WriteString(conn, body)
 
 	//conn.Close()
 
