@@ -17,4 +17,6 @@ for scanner.Scan(){
 Use this code to READ from an incoming connection and print the incoming text to standard out ( the terminal ).
 
 When you "ln" line of text is equal to an empty string break out of the loop.
-Run your code and goto localhost:8080 in your browser. 
+Run your code and goto localhost:8080 in **your browser. **
+
+What do you find?
