@@ -5,7 +5,7 @@ When we used bufio.NewScanner(), our code was reading from a io.Reader that neve
 
 We will now break out of the reading. 
 
-Package bufio has the Scanner type. The Scanner type "provides a convinient interface for reading data". When you have a scanner type, you can call the SCAN method on it. Successive calls to the Scan method will step through the tokens (piece of data). The Scanner type also has a TEXT method. When you call this method, you will be given the text from the current token. Here is how you will use it:
+Package bufio has the Scanner type. The Scanner type "provides a convinient interface for reading data". When you have a scanner type, you can call the SCAN method on it. Successive calls to the Scan method will step through the tokens (piece of data). The default token is a line. The Scanner type also has a TEXT method. When you call this method, you will be given the text from the current token. Here is how you will use it:
 
 var scanner *bufio.Scanner = bufio.NewScanner(conn)
 
