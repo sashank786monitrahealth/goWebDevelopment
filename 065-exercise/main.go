@@ -61,22 +61,20 @@ func serve(conn net.Conn) {
 		i++
 	}
 
-	switch{
+	switch {
 	case rMethod == "GET" && rURI == "/":
 		handleIndex(conn)
 	case rMethod == "GET" && rURI == "/apply":
 		handleApply(conn)
-	case rMethod == "POST" && rURI == '':
+	case rMethod == "POST" && rURI == "":
 		handleApplyPost(conn)
 	default:
 		handleDefault(conn)
 	}
 
-
-
 }
 
-func handleIndex(conn net.Conn){
+func handleIndex(conn net.Conn) {
 	var body string = `
 	<!DOCTYPE html>
 	<html lang="en">
