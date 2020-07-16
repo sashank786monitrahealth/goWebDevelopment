@@ -92,9 +92,88 @@ func handleIndex(conn net.Conn) {
 	`
 	io.WriteString(conn, "HTTP/1.1 200 OK\r\n")
 	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
-	fmt.Fprintf(conn, "Content-Type: text/plain\r\n")
+	fmt.Fprintf(conn, "Content-Type: text/html\r\n")
 	io.WriteString(conn, "\r\n")
 	io.WriteString(conn, body)
 
 	//conn.Close()
+}
+
+func handleApply(conn net.Conn) {
+	var body string = `
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="X-UA-Compatible" content="ie=edge">
+			<title>GET DOG</title>
+		</head>
+		<body>
+			<h1>"GET APPLY"</h1>
+			<a href="/">index</a> <br>
+			<a href="/apply">apply</a><br>
+			<form action="/apply" method="POST">
+			<input type="hidden" value="In my good death">
+			<input type="submit" value="submit">
+			</form>
+		</body>
+		</html>
+
+		`
+
+	io.WriteString(conn, "HTTP/1.1 200 OK\r\n")
+	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
+	fmt.Fprint(conn, "Content-Type: text/html\r\n")
+	io.WriteString(conn, "\r\n")
+	io.WriteString(conn, body)
+
+}
+
+func handleApplyPost(conn net.Conn) {
+	var body string = `
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>POST APPLY</title>
+</head>
+<body>
+    <h1>"POST APPLY"</h1>
+    <a href="/">index</a> <br>
+    <a href="/apply">apply</a> <br>
+</body>
+</html>
+	`
+
+	io.WriteString(conn, "HTTP/1.1 200 OK\r\n")
+	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
+	fmt.Fprint(conn, "Content-Type: text/html\r\n")
+	io.WriteString(conn, "\r\n")
+	io.WriteString(conn, body)
+}
+
+func handleDefault(conn net.Conn) {
+	var body string = `
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>default</title>
+</head>
+<body>
+    <h1>"default"</h1>
+</body>
+</html>
+	`
+
+	io.WriteString(conn, "HTTP/1.1 200 OK\r\n")
+	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
+	fmt.Fprint(conn, "Content-Type: text/html\r\n")
+	io.WriteString(conn, "\r\n")
+	io.WriteString(conn, body)
 }
