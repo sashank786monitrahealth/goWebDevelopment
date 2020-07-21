@@ -19,3 +19,41 @@ The "GET" method for a form submission sends the form submission values through 
     <li>url</li>
 </ul>
 
+
+<p>
+    <b>POST</b> has four letters and so does <b>form</b>
+    <b>GET</b> has three letters and so does <b>url</b>
+</p>
+
+<br><br><br>
+
+<h2>URL values</h2>
+
+<p>You can always append values to a URL.</p>
+<p>Anything after the <b>?</b> is the query string - the area where values are stored.</p>
+<br>
+<img src="URL.png" alt="description of a url">
+<br><br>
+<p>The values are stored in a <i>identifier=value</i> fashion.</p>
+<p>You can have multiple <i>identifier=value</i> by separating them with the <b>&</b>
+ampersand.</p>
+
+
+<h2>Retrieving values</h2>
+<p>While there are multiple ways to retrieve values, we will stick with:</p>
+<p style="color:blue">func (*Request) FormValue</p>
+<br><br>
+<p>func (r *Request) FormValue(key string) string</p>
+<br><br>
+<p>FormValue returns the first value for the named component of the query. <b>POST</b> and <b>PUT</b>
+body parameters take precedence over URL query string values. FormValue calls ParseMultiplePartForm and ParseForm
+
+</p>
+
+<p>
+if necessary and ignores any errors returned by these functions. If key is 
+not present, FormValue returns the empty string. To access multiple values of the same key,
+call ParseFormand then inspect Request.Form directly.
+</p>
+
+
